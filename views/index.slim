@@ -9,11 +9,14 @@ html lang="en"
     meta name='viewport' content='width=device-width, initial-scale=1.0'
 
     link href='/stylesheets/main.css' rel='stylesheet' type='text/css'
+    link href='http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css' rel='stylesheet' type='text/css'
 
   body
     #map
 
     script src='http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js'
-    //script src='/javascripts/main.js'
+    script src='/javascripts/vendor/leaflet-providers/leaflet-providers.js'
 
-    //coffee:
+    coffee:
+      map = L.map('map').setView([42, 2], 5)
+      L.tileLayer.provider('MapQuestOpen.OSM').addTo(map)
