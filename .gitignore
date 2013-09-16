@@ -3,3 +3,5 @@
 public/stylesheets/*.css
 public/stylesheets/vendor/normalize.css
 public/stylesheets/vendor/foundation.css
+
+node_modules/

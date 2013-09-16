@@ -1,0 +1,16 @@
+{
+  "name": "pottery",
+  "description": "Pottery project",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kogainon/pottery.git"
+  },
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-watch": "~0.4.4"
+  },
+  "dependencies": {
+    "grunt-livescript": "~0.5.0"
+  }
+}

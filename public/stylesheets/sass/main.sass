@@ -1,9 +1,41 @@
+@import url(http://fonts.googleapis.com/css?family=Gentium+Basic|Open+Sans:400,800,700)
+
 body
+  font-size: 16px
   margin: 0
 
+p
+  margin-top: 0
+
 div.section
-  width: 100%
   height: 800px
+  position: relative
+  width: 100%
+
+div.content
+  background: rgba(255, 255, 255, 0.85)
+  box-shadow: 0 0 6px 1px rgba(0,0,0,0.5)
+  border: 1px solid white
+  border-top: none
+  padding: 4em 2em
+  // meh use mixin
+  position: absolute
+  width: 40%
+  top: 0
+  right: 5%
+
+  h1
+    color: #222
+    font: 800 2.5em/1em 'Open Sans', sans-serif
+    text-transform: uppercase
+
+  h4
+    color: #111
+    font: italic 400 1.1em/0.8em 'Gentium Basic', serif
+
+  p
+    color: #111
+    font: 400 0.8125em/1.61em 'Open Sans', sans-serif
 
 @mixin fixed-background($url)
   background: url($url) no-repeat center center fixed
