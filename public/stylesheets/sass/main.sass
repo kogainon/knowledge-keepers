@@ -1,9 +1,24 @@
 body
   margin: 0
 
-#map
-  position: fixed
-  top: 0
-  left: 0
-  height: 100%
+div.section
   width: 100%
+  height: 800px
+
+@mixin fixed-background($url)
+  background: url($url) no-repeat center center fixed
+  background-size: cover
+
+// http://css-tricks.com/perfect-full-page-background-image/
+div.section1
+  +fixed-background('/images/chapter1/KK-LAYOUT_TEST-002.jpg')
+div.section2
+  +fixed-background('/images/chapter1/KK-LAYOUT_TEST-003.jpg')
+div.section3
+  +fixed-background('/images/chapter1/KK-LAYOUT_TEST-004.jpg')
+div.section4
+  +fixed-background('/images/chapter1/KK-LAYOUT_TEST-006.jpg')
+
+img
+  max-width: 100%
+  height: auto

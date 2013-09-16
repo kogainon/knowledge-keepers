@@ -1,7 +1,7 @@
 doctype 5
 html lang="en"
   head
-    title American Oasis
+    title Pottery
 
     meta charset='utf-8'
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
@@ -9,14 +9,21 @@ html lang="en"
     meta name='viewport' content='width=device-width, initial-scale=1.0'
 
     link href='/stylesheets/main.css' rel='stylesheet' type='text/css'
-    link href='http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css' rel='stylesheet' type='text/css'
 
   body
-    #map
+    div.chapter.chapter1
+      div.section.section1
+      div.section.section2
+      div.section.section3
+      div.section.section4
 
-    script src='http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js'
-    script src='/javascripts/vendor/leaflet-providers/leaflet-providers.js'
+    script src='/javascripts/vendor/jquery-2.0.3.js'
+    script src='/javascripts/vendor/skrollr.js'
 
     coffee:
-      map = L.map('map').setView([42, 2], 5)
-      L.tileLayer.provider('MapQuestOpen.OSM').addTo(map)
+      set_height = ->
+        height = $(window).height()
+        $('div.section').css 'height', "#{height}px"
+      $ ->
+        set_height()
+        $(window).on 'resize', set_height
