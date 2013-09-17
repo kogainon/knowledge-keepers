@@ -19,7 +19,7 @@ html lang="en"
         == slim :"chapter#{i}/section4"
 
     div.navigation
-      a
+      a#home-link
         i.icon-home
       a href="#chapter1" 1
       a href="#chapter2" 2
@@ -31,6 +31,7 @@ html lang="en"
 
     script src='/javascripts/vendor/jquery-2.0.3.js'
     script src='/javascripts/vendor/skrollr.js'
+    script src='/javascripts/vendor/waypoints.js'
     script src="http://localhost:9011/livereload.js"
 
     coffee:
@@ -40,3 +41,4 @@ html lang="en"
       $ ->
         set_height()
         $(window).on 'resize', set_height
+        $('#chapter1 .section2').waypoint -> $('#home-link').toggleClass('visible')
