@@ -30,16 +30,13 @@ html lang="en"
       a href="#chapter6" 6
       a href="#chapter7" 7
 
+    div.speech-navigation
+      a#speak
+        i.icon-microphone
+
     script src='/javascripts/vendor/jquery-2.0.3.js'
     script src='/javascripts/vendor/skrollr.js'
     script src='/javascripts/vendor/waypoints.js'
+    script src='/javascripts/vendor/annyang.js'
+    script src='/javascripts/main.js'
     script src="http://localhost:9011/livereload.js"
-
-    coffee:
-      set_height = ->
-        height = $(window).height()
-        $('div.section').css 'height', "#{height}px"
-      $ ->
-        set_height()
-        $(window).on 'resize', set_height
-        $('#chapter1 .section2').waypoint -> $('#home-link').toggleClass('visible')
