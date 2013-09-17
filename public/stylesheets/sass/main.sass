@@ -74,27 +74,8 @@ div.content
   background-size: cover
 
 // http://css-tricks.com/perfect-full-page-background-image/
-#chapter1
-  div.section1
-    +fixed-background('/images/chapter1/KK-LAYOUT_TEST-002.jpg')
-  div.section2
-    +fixed-background('/images/chapter1/KK-LAYOUT_TEST-003.jpg')
-  div.section3
-    +fixed-background('/images/chapter1/KK-LAYOUT_TEST-004.jpg')
-  div.section4
-    +fixed-background('/images/chapter1/KK-LAYOUT_TEST-006.jpg')
-
-#chapter2,
-#chapter3,
-#chapter4,
-#chapter5,
-#chapter6,
-#chapter7
-  div.section1
-    +fixed-background('http://placekitten.com/2000/1195')
-  div.section2
-    +fixed-background('http://placekitten.com/2000/1190')
-  div.section3
-    +fixed-background('http://placekitten.com/2000/1180')
-  div.section4
-    +fixed-background('http://placekitten.com/2000/1170')
+@for $chapter from 1 through 7
+  #chapter#{$chapter}
+    @for $section from 1 through 4
+      div.section#{$section}
+        +fixed-background('/images/chapter#{$chapter}/#{$section}.jpg')
