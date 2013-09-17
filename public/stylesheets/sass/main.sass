@@ -43,9 +43,9 @@ div.content
   box-shadow: 0 0 6px 1px rgba(0,0,0,0.5)
   border: 1px solid white
   border-top: none
-  padding: 4em 2em
-  @media screen and (max-width: 1366px)
-    padding: 2em
+  padding: 2em
+  @media screen and (min-width: 1366px)
+    padding: 4em 3em
   // meh use mixin
   position: absolute
   width: 40%
@@ -54,20 +54,30 @@ div.content
 
   h1
     color: #222
-    font: 800 2.5em/1em 'Open Sans', sans-serif
-    @media screen and (max-width: 1100px)
+    font: 800 1.4em/1em 'Open Sans', sans-serif
+    @media screen and (min-width: 768px)
+      font-size: 1.6em
+    @media screen and (min-width: 900px)
       font-size: 2em
+    @media screen and (min-width: 1100px)
+      font-size: 2.5em
+    @media screen and (min-width: 1366px)
+      font-size: 3em
     text-transform: uppercase
 
   h4
     color: #111
-    font: italic 400 1.1em/0.8em 'Gentium Basic', serif
-    @media screen and (max-width: 1024px)
-      font-size: 1em
+    font: italic 400 1em/0.8em 'Gentium Basic', serif
+    @media screen and (min-width: 1024px)
+      font-size: 1.1em
+    @media screen and (min-width: 1366px)
+      font-size: 1.2em
 
   p
     color: #111
     font: 400 0.8125em/1.61em 'Open Sans', sans-serif
+    @media screen and (min-width: 1366px)
+      font-size: 0.9em
 
 @mixin fixed-background($url)
   background: url($url) no-repeat center center fixed
