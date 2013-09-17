@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Gentium+Basic|Open+Sans:400,800,700)
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css)
 
 body
   font-size: 16px
@@ -15,15 +16,15 @@ div.navigation
 
   transition: background 0.5s ease-in-out 0.1s
   &:hover
-    background: rgba(0, 0, 0, 0.8)
+    background: rgba(0, 0, 0, 0.6)
     a
       color: #fafafa
 
   a
     color: transparent
     display: block
-    height: 4em
-    line-height: 4em
+    font: italic 400 1.5em/3em 'Gentium Basic', serif
+    height: 3em
     width: 100%
     text-align: center
     text-decoration: none
@@ -72,15 +73,27 @@ div.content
   background-size: cover
 
 // http://css-tricks.com/perfect-full-page-background-image/
-div.section1
-  +fixed-background('/images/chapter1/KK-LAYOUT_TEST-002.jpg')
-div.section2
-  +fixed-background('/images/chapter1/KK-LAYOUT_TEST-003.jpg')
-div.section3
-  +fixed-background('/images/chapter1/KK-LAYOUT_TEST-004.jpg')
-div.section4
-  +fixed-background('/images/chapter1/KK-LAYOUT_TEST-006.jpg')
+#chapter1
+  div.section1
+    +fixed-background('/images/chapter1/KK-LAYOUT_TEST-002.jpg')
+  div.section2
+    +fixed-background('/images/chapter1/KK-LAYOUT_TEST-003.jpg')
+  div.section3
+    +fixed-background('/images/chapter1/KK-LAYOUT_TEST-004.jpg')
+  div.section4
+    +fixed-background('/images/chapter1/KK-LAYOUT_TEST-006.jpg')
 
-img
-  max-width: 100%
-  height: auto
+#chapter2,
+#chapter3,
+#chapter4,
+#chapter5,
+#chapter6,
+#chapter7
+  div.section1
+    +fixed-background('http://placekitten.com/2000/1195')
+  div.section2
+    +fixed-background('http://placekitten.com/2000/1190')
+  div.section3
+    +fixed-background('http://placekitten.com/2000/1180')
+  div.section4
+    +fixed-background('http://placekitten.com/2000/1170')
