@@ -18,6 +18,8 @@ div.content
   border: 1px solid white
   border-top: none
   padding: 4em 2em
+  @media screen and (max-width: 1366px)
+    padding: 2em
   // meh use mixin
   position: absolute
   width: 40%
@@ -27,11 +29,15 @@ div.content
   h1
     color: #222
     font: 800 2.5em/1em 'Open Sans', sans-serif
+    @media screen and (max-width: 1100px)
+      font-size: 2em
     text-transform: uppercase
 
   h4
     color: #111
     font: italic 400 1.1em/0.8em 'Gentium Basic', serif
+    @media screen and (max-width: 1024px)
+      font-size: 1em
 
   p
     color: #111
