@@ -19,8 +19,8 @@ html lang="en"
         == slim :"chapter#{i}/section3"
         == slim :"chapter#{i}/section4"
 
-    div.navigation
-      a#home-link href="#home"
+    div#navigation.navigation
+      a href="#home"
         i.icon-home
       a href="#chapter1" 1
       a href="#chapter2" 2
@@ -29,8 +29,6 @@ html lang="en"
       a href="#chapter5" 5
       a href="#chapter6" 6
       a href="#chapter7" 7
-
-    div.speech-navigation
       a#speak
         i.icon-microphone
 
