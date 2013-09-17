@@ -11,6 +11,7 @@ html lang="en"
     link href='/stylesheets/main.css' rel='stylesheet' type='text/css'
 
   body
+    div#home
     - [1,2,3,4,5,6,7].each do |i|
       div class="chapter chapter#{i}" id="chapter#{i}"
         == slim :"chapter#{i}/section1"
@@ -19,7 +20,7 @@ html lang="en"
         == slim :"chapter#{i}/section4"
 
     div.navigation
-      a#home-link
+      a#home-link href="#home"
         i.icon-home
       a href="#chapter1" 1
       a href="#chapter2" 2
