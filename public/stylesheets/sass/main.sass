@@ -7,6 +7,30 @@ body
 p
   margin-top: 0
 
+div.navigation
+  position: fixed
+  right: 0px
+  top: 0px
+  width: 5%
+
+  transition: background 0.5s ease-in-out 0.1s
+  &:hover
+    background: rgba(0, 0, 0, 0.8)
+    a
+      color: #fafafa
+
+  a
+    color: transparent
+    display: block
+    height: 4em
+    line-height: 4em
+    width: 100%
+    text-align: center
+    text-decoration: none
+    transition: background 0.3s ease-in-out 0.1s
+    &:hover
+      background: rgba(23, 141, 255, 0.8)
+
 div.section
   height: 800px
   position: relative
