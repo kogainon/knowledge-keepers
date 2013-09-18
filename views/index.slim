@@ -9,6 +9,7 @@ html lang="en"
     meta name='viewport' content='width=device-width, initial-scale=1.0'
 
     link href='/stylesheets/main.css' rel='stylesheet' type='text/css'
+    link href='http://releases.flowplayer.org/5.4.3/skin/minimalist.css' rel='stylesheet' type='text/css'
 
   body
     div#home
@@ -37,5 +38,9 @@ html lang="en"
     script src='/javascripts/vendor/keymaster.js'
     script src='/javascripts/vendor/skrollr.js'
     script src='/javascripts/vendor/waypoints.js'
+    script src='http://releases.flowplayer.org/5.4.3/flowplayer.min.js'
     script src='/javascripts/main.js'
-    script src="http://localhost:9011/livereload.js"
+    script src='http://localhost:9011/livereload.js'
+
+    script
+      flowplayer.conf.adaptiveRatio = true
