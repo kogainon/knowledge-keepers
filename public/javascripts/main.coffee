@@ -53,4 +53,6 @@ set_height = ->
 $ ->
   set_height()
   $(window).on 'resize', set_height
+
+$ ->
   $('#chapter1 .section2').waypoint -> $('#navigation').toggleClass('visible')
