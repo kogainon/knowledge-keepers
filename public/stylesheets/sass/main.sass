@@ -60,12 +60,24 @@ div.content
   padding: 2em
   @media screen and (min-width: 1366px)
     padding: 4em 3em
-  // meh use mixin
   position: absolute
-  width: 40%
-  top: 0
-  right: 5%
 
+  &.bottom
+    bottom: 0
+  &.top
+    top: 0
+  @for $i from 1 through 20
+    &.width-#{$i * 5}
+      width: $i * 5%
+  &.left-0
+    left: 0
+  @for $i from 1 through 5
+    &.right-#{$i * 5}
+      right: $i * 5%
+    &.left-#{$i * 5}
+      left: $i * 5%
+
+div.content
   h1
     color: #222
     font: 800 1.4em/1em 'Open Sans', sans-serif
