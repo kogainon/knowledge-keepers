@@ -7,6 +7,7 @@ module.exports = (grunt) ->
         files:
           'public/javascripts/build.js': ['public/coffee/**/*.coffee']
         options:
+          debug: true
           transform: ['coffeeify']
     watch:
       options:
