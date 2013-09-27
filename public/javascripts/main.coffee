@@ -1,22 +1,7 @@
-locations =
-  kittens: ['#chapter2 .section3', '#chapter2 .section4', '#chapter3 .section1', '#chapter3 .section4']
-  mister:  ['#chapter2 .section2', '#chapter3 .section3']
-  zeus:    ['#chapter2', '#chapter3 .section2', '#chapter4 .section3', '#chapter5 .section4', '#chapter6 .section1', '#chapter7 .section2']
-
-show_pictures = (pic_type) ->
-  target = locations[pic_type].shift()
-  locations[pic_type].push(target)
-  $('html, body').animate
-    scrollTop: $(target).offset().top
-  , 400
-
 $('#speak').on 'click', ->
   if annyang
     commands =
       'chapter :number': (num) -> window.scrollTo 0, $("#chapter#{num}").offset().top
-      'kittens': -> show_pictures('kittens')
-      'mister': -> show_pictures('mister')
-      'zeus': -> show_pictures('zeus')
     annyang.init commands
     annyang.start()
 
@@ -34,7 +19,6 @@ scroll = (direction = 'down') ->
     scrollTop: target
   , 400
   scrolling = false
-
 
 # highjack pageup and down
 key 'pageup', ->
@@ -55,4 +39,25 @@ $ ->
   $(window).on 'resize', set_height
 
 $ ->
-  $('#chapter1 .section2').waypoint -> $('#navigation').toggleClass('visible')
+  $('#chapter2 .section1').waypoint -> $('#navigation').toggleClass('visible')
+
+  nav = $('#navigation a')
+  set_chapter = (nav, chapter) ->
+    nav.removeClass('active').filter(chapter).addClass('active')
+
+  $('#chapter2 .section1').waypoint ->
+    set_chapter(nav, '.chapter2')
+  $('#chapter3 .section1, #chapter3 .section4').waypoint ->
+    set_chapter(nav, '.chapter3')
+  $('#chapter4 .section1, #chapter4 .section4').waypoint ->
+    set_chapter(nav, '.chapter4')
+  $('#chapter5 .section1, #chapter5 .section3').waypoint ->
+    set_chapter(nav, '.chapter5')
+  $('#chapter6 .section1, #chapter6 .section4').waypoint ->
+    set_chapter(nav, '.chapter6')
+  $('#chapter7 .section1, #chapter7 .section4').waypoint ->
+    set_chapter(nav, '.chapter7')
+  $('#chapter8 .section1, #chapter8 .section4').waypoint ->
+    set_chapter(nav, '.chapter8')
+  $('#chapter9 .section1').waypoint ->
+    set_chapter(nav, '.chapter9')
