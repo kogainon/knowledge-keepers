@@ -1,3 +1,0 @@
-[submodule "public/javascripts/vendor/leaflet-providers"]
-	path = public/javascripts/vendor/leaflet-providers
-	url = https://github.com/leaflet-extras/leaflet-providers.git
