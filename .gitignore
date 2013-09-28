@@ -4,4 +4,5 @@ public/stylesheets/*.css
 public/stylesheets/vendor/normalize.css
 public/stylesheets/vendor/foundation.css
 
+bower_components/
 node_modules/

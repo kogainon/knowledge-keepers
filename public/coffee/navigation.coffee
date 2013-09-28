@@ -1,3 +1,5 @@
+$ = require('jQuery')
+
 module.exports = ->
   $('#chapter2 .section1').waypoint -> $('#navigation').toggleClass('visible')
 

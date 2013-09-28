@@ -16,6 +16,8 @@
     "grunt-browserify": "~1.2.5",
     "coffeeify": "~0.5.1",
     "deglobalify": "0.0.1",
-    "grunt-contrib-concat": "~0.3.0"
+    "grunt-contrib-concat": "~0.3.0",
+    "debowerify": "~0.1.8",
+    "grunt-bower-task": "~0.3.2"
   }
 }

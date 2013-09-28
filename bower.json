@@ -1,0 +1,26 @@
+{
+  "name": "knowledge-keepers",
+  "version": "0.1",
+  "homepage": "https://github.com/kogainon/knowledge-keepers",
+  "authors": [
+    "Chris Dahms <zentrification@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  },
+  "devDependencies": {
+    "jquery-waypoints": "~2.0.3",
+    "keymaster": "*",
+    "annyang": "*",
+    "skrollr": "~0.6.12"
+  }
+}

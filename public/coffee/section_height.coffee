@@ -1,3 +1,5 @@
+$ = require('jQuery')
+
 # match height on each section to browser
 set_height = ->
   height = $(window).height()

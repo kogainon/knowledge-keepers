@@ -4,26 +4,34 @@ module.exports = (grunt) ->
     pkg: grunt.file.readJSON('package.json')
     browserify:
       client:
-        files:
-          'public/javascripts/client.js': ['public/coffee/**/*.coffee']
+        src: ['public/coffee/**/*.coffee']
+        dest: 'public/javascripts/client.js'
         options:
           debug: true
-          external: ['jquery', 'keymaster', 'waypoints']
+          external: ['annyang', 'jQuery', 'key', 'waypoints']
           transform: ['coffeeify']
       vendor:
-        files:
-          'public/javascripts/vendor.js': ['public/javascripts/vendor/**/*.js']
+        src: [
+          'bower_components/annyang/annyang.js'
+          'bower_components/jquery/jquery.js'
+          'bower_components/jquery-waypoints/waypoints.js'
+          'bower_components/keymaster/keymaster.js'
+        ]
+        dest: 'public/javascripts/vendor.js'
         options:
           debug: true
+          alias: [
+            'bower_components/jquery/jquery.js:jQuery'
+          ]
           shim:
-            jquery:
-              path: 'public/javascripts/vendor/jquery.js'
-              exports: '$'
+            annyang:
+              path: 'bower_components/annyang/annyang.js'
+              exports: 'annyang'
             keymaster:
-              path: 'public/javascripts/vendor/keymaster.js'
+              path: 'bower_components/keymaster/keymaster.js'
               exports: 'key'
             waypoints:
-              path: 'public/javascripts/vendor/waypoints.js'
+              path: 'bower_components/jquery-waypoints/waypoints.js'
               exports: 'waypoints'
     concat:
       'public/javascripts/app.js': ['public/javascripts/vendor.js', 'public/javascripts/client.js']
