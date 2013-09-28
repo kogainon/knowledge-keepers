@@ -32,7 +32,9 @@ module.exports = (grunt) ->
         livereload: 9011
       coffee:
         files: 'public/coffee/**/*.coffee'
-        tasks: ['browserify:dist']
+        tasks: ['browserify:client', 'concat']
+      grunt:
+        files: 'Gruntfile.coffee'
       sass:
         files: 'public/stylesheets/**/*.s?ss'
       slim:
