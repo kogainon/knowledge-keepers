@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "grunt-browserify": "~1.2.5",
-    "coffeeify": "~0.5.1"
+    "coffeeify": "~0.5.1",
+    "deglobalify": "0.0.1",
+    "grunt-contrib-concat": "~0.3.0"
   }
 }
