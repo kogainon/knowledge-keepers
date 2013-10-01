@@ -115,3 +115,10 @@ div.content
     @for $section from 1 through 4
       div.section#{$section}
         +fixed-background('/images/chapter#{$chapter}/#{$section}.jpg')
+
+// tweak flowplayer
+.flowplayer
+  a.fp-embed,
+  a.fp-fullscreen
+    display: none
+

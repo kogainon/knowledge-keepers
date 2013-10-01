@@ -65,12 +65,9 @@ html lang="en"
         i.icon-microphone
 
     //
-      script src='/javascripts/vendor/jquery-2.0.3.js'
       script src='/javascripts/vendor/jquery.scrolldepth.js'
-      script src='/javascripts/vendor/annyang.js'
-      script src='/javascripts/vendor/keymaster.js'
-      script src='/javascripts/vendor/skrollr.js'
-      script src='/javascripts/vendor/waypoints.js'
+      javascript:
+        $.scrollDepth();
 
     //
       script src='http://releases.flowplayer.org/5.4.3/flowplayer.min.js'
@@ -89,7 +86,3 @@ html lang="en"
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-
-    //
-      javascript:
-        $.scrollDepth();

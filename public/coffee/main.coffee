@@ -1,3 +1,5 @@
+flowplayer.conf.adaptiveRatio = true
+
 navigation = require('./navigation.coffee')
 navigation()
 

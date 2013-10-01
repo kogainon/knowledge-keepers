@@ -9,11 +9,13 @@ module.exports = (grunt) ->
         dest: 'public/javascripts/client.js'
         options:
           debug: true
-          external: ['annyang', 'jquery', 'key', 'waypoints']
+          external: ['annyang', 'flowplayer', 'jquery', 'key', 'waypoints']
           transform: ['coffeeify']
       vendor:
         src: [
           'bower_components/annyang/annyang.js'
+          'bower_components/flowplayer/lib/flowplayer.js'
+          'public/javascripts/vendor/flowplayer.min.js'
           'bower_components/jquery/jquery.js'
           'bower_components/jquery-waypoints/waypoints.js'
           'bower_components/keymaster/keymaster.js'
@@ -28,6 +30,11 @@ module.exports = (grunt) ->
             jquery:
               path: 'bower_components/jquery/jquery.js'
               exports: '$'
+            flowplayer:
+              path: 'public/javascripts/vendor/flowplayer.min.js'
+              exports: 'flowplayer'
+              depends:
+                jquery: '$'
             keymaster:
               path: 'bower_components/keymaster/keymaster.js'
               exports: 'key'
