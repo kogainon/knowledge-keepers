@@ -5,12 +5,12 @@ module.exports = (grunt) ->
 
     browserify:
       client:
-        src: ['public/coffee/**/*.coffee']
+        src: ['public/livescript/**/*.ls']
         dest: 'public/javascripts/client.js'
         options:
           debug: true
           external: ['annyang', 'flowplayer', 'jquery', 'key', 'waypoints']
-          transform: ['coffeeify']
+          transform: ['liveify']
       vendor:
         src: [
           'bower_components/annyang/annyang.js'
@@ -45,12 +45,11 @@ module.exports = (grunt) ->
     concat:
       'public/javascripts/app.js': ['public/javascripts/vendor.js', 'public/javascripts/client.js']
 
-
     watch:
       options:
         livereload: 9011
-      coffee:
-        files: 'public/coffee/**/*.coffee'
+      livescript:
+        files: 'public/livescript/**/*.ls'
         tasks: ['browserify:client', 'concat']
       grunt:
         files: 'Gruntfile.coffee'

@@ -18,6 +18,8 @@
     "deglobalify": "0.0.1",
     "grunt-contrib-concat": "~0.3.0",
     "debowerify": "~0.1.8",
-    "grunt-bower-task": "~0.3.2"
+    "grunt-bower-task": "~0.3.2",
+    "LiveScript": "~1.2.0",
+    "liveify": "~0.3.1"
   }
 }
