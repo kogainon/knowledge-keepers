@@ -1,17 +1,9 @@
-require 'rack/coffee'
-require 'sass/plugin/rack'
 require 'slim'
 require './app'
 
 use Rack::Deflater
 
-use Sass::Plugin::Rack
-
 Slim::Engine.default_options[:pretty] = true
-
-use Rack::Coffee,
-  root: 'public',
-  urls: '/javascripts/'
 
 use Rack::Static,
   root: 'public',
