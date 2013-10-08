@@ -1,0 +1,277 @@
+@import url(http://fonts.googleapis.com/css?family=Gentium+Basic|Open+Sans:400,800,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+body {
+  font-size: 16px;
+  margin: 0; }
+
+p {
+  margin-top: 0; }
+
+div.navigation {
+  height: 100%;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 5%;
+  z-index: 1000;
+  transition: background 0.5s ease-in-out 0.1s; }
+  div.navigation:hover {
+    background: rgba(0, 0, 0, 0.6); }
+    div.navigation:hover a {
+      color: #fafafa; }
+  div.navigation.visible a {
+    color: rgba(255, 255, 255, 0.6); }
+  div.navigation.visible a.active {
+    background: rgba(23, 141, 255, 0.6);
+    color: white; }
+  div.navigation a {
+    color: transparent;
+    display: block;
+    font: italic 400 1.5em/3em "Gentium Basic", serif;
+    height: 3em;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out 0.1s;
+    transition: color 0.5s ease-in-out; }
+    div.navigation a:hover {
+      background: rgba(23, 141, 255, 0.8);
+      color: white; }
+  div.navigation a#speak {
+    position: absolute;
+    bottom: 0; }
+
+div.section {
+  height: 800px;
+  position: relative;
+  width: 100%; }
+
+div.content {
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.5);
+  border: 1px solid white;
+  border-top: none;
+  padding: 2em;
+  position: absolute; }
+  @media screen and (min-width: 1366px) {
+    div.content {
+      padding: 4em 3em; } }
+  div.content.bottom {
+    bottom: 0; }
+  div.content.top {
+    top: 0; }
+  div.content.width-5 {
+    width: 5%; }
+  div.content.width-10 {
+    width: 10%; }
+  div.content.width-15 {
+    width: 15%; }
+  div.content.width-20 {
+    width: 20%; }
+  div.content.width-25 {
+    width: 25%; }
+  div.content.width-30 {
+    width: 30%; }
+  div.content.width-35 {
+    width: 35%; }
+  div.content.width-40 {
+    width: 40%; }
+  div.content.width-45 {
+    width: 45%; }
+  div.content.width-50 {
+    width: 50%; }
+  div.content.width-55 {
+    width: 55%; }
+  div.content.width-60 {
+    width: 60%; }
+  div.content.width-65 {
+    width: 65%; }
+  div.content.width-70 {
+    width: 70%; }
+  div.content.width-75 {
+    width: 75%; }
+  div.content.width-80 {
+    width: 80%; }
+  div.content.width-85 {
+    width: 85%; }
+  div.content.width-90 {
+    width: 90%; }
+  div.content.width-95 {
+    width: 95%; }
+  div.content.width-100 {
+    width: 100%; }
+  div.content.left-0 {
+    left: 0; }
+  div.content.right-5 {
+    right: 5%; }
+  div.content.left-5 {
+    left: 5%; }
+  div.content.right-10 {
+    right: 10%; }
+  div.content.left-10 {
+    left: 10%; }
+  div.content.right-15 {
+    right: 15%; }
+  div.content.left-15 {
+    left: 15%; }
+  div.content.right-20 {
+    right: 20%; }
+  div.content.left-20 {
+    left: 20%; }
+  div.content.right-25 {
+    right: 25%; }
+  div.content.left-25 {
+    left: 25%; }
+
+div.content h1 {
+  color: #222222;
+  font: 800 1.4em/1em "Open Sans", sans-serif;
+  text-transform: uppercase; }
+  @media screen and (min-width: 768px) {
+    div.content h1 {
+      font-size: 1.6em; } }
+  @media screen and (min-width: 900px) {
+    div.content h1 {
+      font-size: 2em; } }
+  @media screen and (min-width: 1100px) {
+    div.content h1 {
+      font-size: 2.5em; } }
+  @media screen and (min-width: 1366px) {
+    div.content h1 {
+      font-size: 3em; } }
+div.content h4 {
+  color: #111111;
+  font: italic 400 1em/0.8em "Gentium Basic", serif; }
+  @media screen and (min-width: 1024px) {
+    div.content h4 {
+      font-size: 1.1em; } }
+  @media screen and (min-width: 1366px) {
+    div.content h4 {
+      font-size: 1.2em; } }
+div.content p {
+  color: #111111;
+  font: 400 0.8125em/1.61em "Open Sans", sans-serif; }
+  @media screen and (min-width: 1366px) {
+    div.content p {
+      font-size: 0.9em; } }
+
+#chapter1 div.section1 {
+  background: url("/images/chapter1/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter1 div.section2 {
+  background: url("/images/chapter1/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter1 div.section3 {
+  background: url("/images/chapter1/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter1 div.section4 {
+  background: url("/images/chapter1/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+#chapter2 div.section1 {
+  background: url("/images/chapter2/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter2 div.section2 {
+  background: url("/images/chapter2/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter2 div.section3 {
+  background: url("/images/chapter2/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter2 div.section4 {
+  background: url("/images/chapter2/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+#chapter3 div.section1 {
+  background: url("/images/chapter3/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter3 div.section2 {
+  background: url("/images/chapter3/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter3 div.section3 {
+  background: url("/images/chapter3/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter3 div.section4 {
+  background: url("/images/chapter3/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+#chapter4 div.section1 {
+  background: url("/images/chapter4/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter4 div.section2 {
+  background: url("/images/chapter4/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter4 div.section3 {
+  background: url("/images/chapter4/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter4 div.section4 {
+  background: url("/images/chapter4/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+#chapter5 div.section1 {
+  background: url("/images/chapter5/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter5 div.section2 {
+  background: url("/images/chapter5/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter5 div.section3 {
+  background: url("/images/chapter5/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter5 div.section4 {
+  background: url("/images/chapter5/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+#chapter6 div.section1 {
+  background: url("/images/chapter6/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter6 div.section2 {
+  background: url("/images/chapter6/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter6 div.section3 {
+  background: url("/images/chapter6/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter6 div.section4 {
+  background: url("/images/chapter6/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+#chapter7 div.section1 {
+  background: url("/images/chapter7/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter7 div.section2 {
+  background: url("/images/chapter7/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter7 div.section3 {
+  background: url("/images/chapter7/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter7 div.section4 {
+  background: url("/images/chapter7/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+#chapter8 div.section1 {
+  background: url("/images/chapter8/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter8 div.section2 {
+  background: url("/images/chapter8/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter8 div.section3 {
+  background: url("/images/chapter8/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter8 div.section4 {
+  background: url("/images/chapter8/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+#chapter9 div.section1 {
+  background: url("/images/chapter9/1.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter9 div.section2 {
+  background: url("/images/chapter9/2.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter9 div.section3 {
+  background: url("/images/chapter9/3.jpg") no-repeat center center fixed;
+  background-size: cover; }
+#chapter9 div.section4 {
+  background: url("/images/chapter9/4.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+.flowplayer a.fp-embed,
+.flowplayer a.fp-fullscreen {
+  display: none; }
