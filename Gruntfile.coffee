@@ -45,6 +45,11 @@ module.exports = (grunt) ->
     concat:
       'public/javascripts/app.js': ['public/javascripts/vendor.js', 'public/javascripts/client.js']
 
+    sass:
+      dist:
+        files:
+          'public/stylesheets/main.css': 'public/sass/main.sass'
+
     watch:
       options:
         livereload: 9011
@@ -54,12 +59,14 @@ module.exports = (grunt) ->
       grunt:
         files: 'Gruntfile.coffee'
       sass:
-        files: 'public/stylesheets/**/*.s?ss'
+        files: 'public/sass/**/*.s?ss'
+        tasks: ['sass']
       slim:
         files: 'views/**/*.slim'
 
   grunt.loadNpmTasks('grunt-browserify')
   grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-sass')
   grunt.loadNpmTasks('grunt-contrib-watch')
 
-  grunt.registerTask('default', ['browserify', 'concat'])
+  grunt.registerTask('default', ['browserify', 'concat', 'sass'])

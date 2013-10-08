@@ -20,6 +20,7 @@
     "debowerify": "~0.1.8",
     "grunt-bower-task": "~0.3.2",
     "LiveScript": "~1.2.0",
-    "liveify": "~0.3.1"
+    "liveify": "~0.3.1",
+    "grunt-contrib-sass": "~0.5.0"
   }
 }
