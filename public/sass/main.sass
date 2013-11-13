@@ -1,121 +1,164 @@
-@import url(http://fonts.googleapis.com/css?family=Gentium+Basic|Open+Sans:400,800,700)
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css)
+$black: #202020
+$blue: #99d8de
+$white: #fafafa
+
+$font-size: 18px
+$line-height: 1.4em
+
+@mixin calluna
+  font-family: "calluna", serif
+@mixin gotham
+  font-family: "proxima-nova", sans-serif
 
 body
-  font-size: 16px
+  +calluna
+  font-size: $font-size
   margin: 0
+
+h1, h2, h3
+  +gotham
 
 p
   margin-top: 0
+  line-height: $line-height
+  &.dropcap
+    &:first-letter
+      float: left
+      font-size: $line-height * 2.15
+      line-height: 0.6em
+      padding: 7px 5px 0px 0
+      text-transform: uppercase
 
+span.dropcap
+  float: left
+  font-size: $line-height * 2.15
+  line-height: 0.6em
+  padding: 7px 5px 0px 0
+  text-transform: uppercase
+
+// navigation //////////////////////////////////////////////////////////////////
+$nav-padding: 2em
 div.navigation
-  height: 100%
+  background: $black
   position: fixed
   right: 0px
   top: 0px
-  width: 5%
+  width: 100%
   z-index: 1000
 
-  transition: background 0.5s ease-in-out 0.1s
-
-  &:hover
-    background: rgba(0, 0, 0, 0.6)
-    a
-      color: #fafafa
-
-  &.visible
-    a
-      color: rgba(255, 255, 255, 0.6)
-    a.active
-      background: rgba(23, 141, 255, 0.6)
-      color: white
+  #menu
+    float: right
 
   a
-    color: transparent
-    display: block
-    font: italic 400 1.5em/3em 'Gentium Basic', serif
-    height: 3em
-    width: 100%
-    text-align: center
+    color: $white
+    display: inline-block
+    font-size: 1.2em
+    line-height: 1.5em
     text-decoration: none
-    transition: background 0.3s ease-in-out 0.1s
-    transition: color 0.5s ease-in-out
+    &:after
+      content: '-'
+      margin-left: 5px
     &:hover
-      background: rgba(23, 141, 255, 0.8)
-      color: white
-
-  a#speak
-    position: absolute
-    bottom: 0
-
-div.section
-  height: 800px
-  position: relative
-  width: 100%
-
-div.content
-  background: rgba(255, 255, 255, 0.85)
-  box-shadow: 0 0 6px 1px rgba(0,0,0,0.5)
-  border: 1px solid white
-  border-top: none
-  padding: 2em
-  @media screen and (min-width: 1366px)
-    padding: 4em 3em
-  position: absolute
-
-  &.bottom
-    bottom: 0
-  &.top
-    top: 0
-  @for $i from 1 through 20
-    &.width-#{$i * 5}
-      width: $i * 5%
-  &.left-0
-    left: 0
-  @for $i from 1 through 5
-    &.right-#{$i * 5}
-      right: $i * 5%
-    &.left-#{$i * 5}
-      left: $i * 5%
-
-div.content
+      color: $blue
+      &:after
+        color: $white
+    &.chapter9
+      &:after
+        content: ''
   h1
-    color: #222
-    font: 800 1.4em/1em 'Open Sans', sans-serif
-    @media screen and (min-width: 768px)
-      font-size: 1.6em
-    @media screen and (min-width: 900px)
-      font-size: 2em
-    @media screen and (min-width: 1100px)
-      font-size: 2.5em
-    @media screen and (min-width: 1366px)
-      font-size: 3em
+    +calluna
+    color: $white
+    font-size: 1.1em
+    line-height: 1.6em
+    padding-left: $nav-padding
     text-transform: uppercase
+  li
+    display: inline
+    &.active a
+      color: $blue
+  ul
+    margin: 0.6em 0 0 0
+    padding-right: $nav-padding
 
-  h4
-    color: #111
-    font: italic 400 1em/0.8em 'Gentium Basic', serif
-    @media screen and (min-width: 1024px)
-      font-size: 1.1em
-    @media screen and (min-width: 1366px)
-      font-size: 1.2em
+// content /////////////////////////////////////////////////////////////////////
+div.content
+  background: #fff
+  padding-top: 58px
+  &.center
+    margin: 0 auto
+  &.width-700
+    max-width: 700px
+  &.width-800
+    max-width: 800px
+  @for $offset from 1 through 65
+    &.offset-#{$offset}
+      margin-left: 1% * $offset
+  @for $width from 30 through 70
+    &.width-#{$width}
+      max-width: 1% * $width
 
-  p
-    color: #111
-    font: 400 0.8125em/1.61em 'Open Sans', sans-serif
-    @media screen and (min-width: 1366px)
-      font-size: 0.9em
+div.content-padder
+  padding: 3em
 
+div.slide.video
+  background: $black
+
+div.title
+  border-bottom: 1px solid $black
+  margin-bottom: 1em
+  padding-bottom: 5px
+
+  h1
+    font-size: 2.4em
+  h1, h2, h3
+    margin: 0
+    text-transform: uppercase
+  h3
+    font-weight: normal
+    font-size: 1.3em
+
+p.title-credits
+  +gotham
+  font-size: 0.85em
+  margin-top: -0.5em
+  margin-bottom: 2em
+
+// backgrounds//////////////////////////////////////////////////////////////////
 @mixin fixed-background($url)
   background: url($url) no-repeat center center fixed
   background-size: cover
 
+#section2
+  +fixed-background('/images/chapter2/1.jpg')
+
 // http://css-tricks.com/perfect-full-page-background-image/
-@for $chapter from 1 through 9
-  #chapter#{$chapter}
-    @for $section from 1 through 4
-      div.section#{$section}
-        +fixed-background('/images/chapter#{$chapter}/#{$section}.jpg')
+@for $chapter from 3 through 8
+  @for $section from 1 through 3
+    #section#{$chapter} #slide#{$section}
+      +fixed-background('/images/chapter#{$chapter}/#{$section}.jpg')
+
+#section5 #slide2,
+#section6 #slide3
+  background: none
+
+// videos
+#section3 #slide4,
+#section4 #slide4,
+#section5 #slide3,
+#section6 #slide4,
+#section7 #slide4,
+#section8 #slide4
+  background: black
+
+// tweak fullpage
+$controlArrow-color: rgba(210, 210, 210, 0.7)
+.controlArrow
+  &.prev
+    border-right-color: $controlArrow-color !important
+    z-index: 9999
+  &.next
+    border-left-color: $controlArrow-color !important
+    z-index: 9999
 
 // tweak flowplayer
 .flowplayer

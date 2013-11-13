@@ -3,47 +3,19 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
 
-    browserify:
-      client:
-        src: ['public/livescript/**/*.ls']
-        dest: 'public/javascripts/client.js'
-        options:
-          debug: true
-          external: ['annyang', 'flowplayer', 'jquery', 'key', 'waypoints']
-          transform: ['liveify']
-      vendor:
-        src: [
-          'bower_components/annyang/annyang.js'
-          'bower_components/flowplayer/lib/flowplayer.js'
-          'public/javascripts/vendor/flowplayer.min.js'
-          'bower_components/jquery/jquery.js'
-          'bower_components/jquery-waypoints/waypoints.js'
-          'bower_components/keymaster/keymaster.js'
-        ]
-        dest: 'public/javascripts/vendor.js'
-        options:
-          debug: true
-          shim:
-            annyang:
-              path: 'bower_components/annyang/annyang.js'
-              exports: 'annyang'
-            jquery:
-              path: 'bower_components/jquery/jquery.js'
-              exports: '$'
-            flowplayer:
-              path: 'public/javascripts/vendor/flowplayer.min.js'
-              exports: 'flowplayer'
-              depends:
-                jquery: '$'
-            keymaster:
-              path: 'bower_components/keymaster/keymaster.js'
-              exports: 'key'
-            waypoints:
-              path: 'bower_components/jquery-waypoints/waypoints.js'
-              exports: 'waypoints'
+    coffee:
+      compile:
+        files:
+          'public/javascripts/client.js': 'public/coffee/main.coffee'
 
     concat:
-      'public/javascripts/app.js': ['public/javascripts/vendor.js', 'public/javascripts/client.js']
+      'public/javascripts/all.js': [
+        'bower_components/jquery/jquery.js'
+        'bower_components/jquery-ui/ui/jquery-ui.js'
+        'bower_components/fullPage.js/vendors/jquery.slimscroll.min.js'
+        'bower_components/fullPage.js/jquery.fullPage.js'
+        'public/javascripts/client.js'
+      ]
 
     sass:
       dist:
@@ -53,9 +25,9 @@ module.exports = (grunt) ->
     watch:
       options:
         livereload: 9011
-      livescript:
-        files: 'public/livescript/**/*.ls'
-        tasks: ['browserify:client', 'concat']
+      coffee:
+        files: 'public/coffee/*.coffee'
+        tasks: ['coffee', 'concat']
       grunt:
         files: 'Gruntfile.coffee'
       sass:
@@ -66,6 +38,7 @@ module.exports = (grunt) ->
 
   grunt.loadNpmTasks('grunt-browserify')
   grunt.loadNpmTasks('grunt-contrib-concat')
+  grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-sass')
   grunt.loadNpmTasks('grunt-contrib-watch')
 

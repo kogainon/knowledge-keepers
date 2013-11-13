@@ -6,3 +6,6 @@ scrolling()
 section_height()
 
 flowplayer.conf.adaptiveRatio = true
+
+console.log $.fn.fullpage
+console.log $.fn.fullpage

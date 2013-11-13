@@ -8,73 +8,33 @@ html lang="en"
     meta name='description' content=''
     meta name='viewport' content='width=device-width, initial-scale=1.0'
 
+    link href='/stylesheets/jquery.fullPage.css' rel='stylesheet' type='text/css'
     link href='/stylesheets/main.css' rel='stylesheet' type='text/css'
     link href='http://releases.flowplayer.org/5.4.3/skin/minimalist.css' rel='stylesheet' type='text/css'
 
+    script type="text/javascript" src="//use.typekit.net/qdp3aho.js"
+    javascript:
+      try{Typekit.load();}catch(e){}
+
   body
-    div#home
-    div class="chapter chapter1" id="chapter1"
-      == slim :"chapter1/section1"
-    div class="chapter chapter2" id="chapter2"
-      == slim :"chapter2/section1"
-    div class="chapter chapter3" id="chapter3"
-      == slim :"chapter3/section1"
-      == slim :"chapter3/section2"
-      == slim :"chapter3/section3"
-      == slim :"chapter3/section4"
-    div class="chapter chapter4" id="chapter4"
-      == slim :"chapter4/section1"
-      == slim :"chapter4/section2"
-      == slim :"chapter4/section3"
-      == slim :"chapter4/section4"
-    div class="chapter chapter5" id="chapter5"
-      == slim :"chapter5/section1"
-      == slim :"chapter5/section2"
-      == slim :"chapter5/section3"
-    div class="chapter chapter6" id="chapter6"
-      == slim :"chapter6/section1"
-      == slim :"chapter6/section2"
-      == slim :"chapter6/section3"
-      == slim :"chapter6/section4"
-    div class="chapter chapter7" id="chapter7"
-      == slim :"chapter7/section1"
-      == slim :"chapter7/section2"
-      == slim :"chapter7/section3"
-      == slim :"chapter7/section4"
-    div class="chapter chapter8" id="chapter8"
-      == slim :"chapter8/section1"
-      == slim :"chapter8/section2"
-      == slim :"chapter8/section3"
-      == slim :"chapter8/section4"
-    div class="chapter chapter9" id="chapter9"
-      == slim :"chapter9/section1"
-
     div#navigation.navigation
-      a.home.active href="#home"
-        i.icon-home
-      a.chapter1 href="#chapter1" 1
-      a.chapter2 href="#chapter2" 2
-      a.chapter3 href="#chapter3" 3
-      a.chapter4 href="#chapter4" 4
-      a.chapter5 href="#chapter5" 5
-      a.chapter6 href="#chapter6" 6
-      a.chapter7 href="#chapter7" 7
-      a.chapter8 href="#chapter8" 8
-      a.chapter9 href="#chapter9" 9
-      a#speak
-        i.icon-microphone
+      ul#menu
+        - (0..9).each do |x|
+          - active_class = 'active' if x == 0
+          li class=active_class data-menuanchor="chapter#{x}"
+            a class="chapter#{x}" href="#chapter#{x}" = x
+      h1 Knowledge Keepers
 
-    //
-      script src='/javascripts/vendor/jquery.scrolldepth.js'
-      javascript:
-        $.scrollDepth();
+    - (0..9).each do |x|
+      div class="section" id="section#{x}" data-anchor="chapter#{x}"
+        == slim :"chapter#{x}"
 
-    //
-      script src='http://releases.flowplayer.org/5.4.3/flowplayer.min.js'
-      javascript:
-        flowplayer.conf.adaptiveRatio = true
 
-    script src='/javascripts/app.js'
+    script src='/javascripts/all.js'
+    script src='http://releases.flowplayer.org/5.4.3/flowplayer.min.js'
+    javascript:
+      flowplayer.conf.adaptiveRatio = true
+
     script src='http://localhost:9011/livereload.js'
 
     javascript:
