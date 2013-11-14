@@ -66,7 +66,7 @@ div.navigation {
         content: ""; }
 
 div.content {
-  background: white; }
+  background: rgba(255, 255, 255, 0.95); }
   div.content.center {
     margin: 0 auto; }
   div.content.width-700 {
