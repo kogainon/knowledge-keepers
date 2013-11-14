@@ -23,7 +23,8 @@ html lang="en"
           - active_class = 'active' if x == 0
           li class=active_class data-menuanchor="chapter#{x}"
             a class="chapter#{x}" href="#chapter#{x}" = x
-      h1 Knowledge Keepers
+      h1
+        a href="#chapter0" Knowledge Keepers
 
     - (0..9).each do |x|
       div class="section" id="section#{x}" data-anchor="chapter#{x}"

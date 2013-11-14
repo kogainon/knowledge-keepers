@@ -32,36 +32,38 @@ div.navigation {
   z-index: 1000; }
   div.navigation #menu {
     float: right; }
-  div.navigation a {
-    color: #fafafa;
-    display: inline-block;
-    font-size: 1.3em;
-    line-height: 60px;
-    text-decoration: none; }
-    div.navigation a:after {
-      content: "-";
-      margin-left: 5px; }
-    div.navigation a:hover {
-      color: #99d8de; }
-      div.navigation a:hover:after {
-        color: #fafafa; }
-    div.navigation a.chapter9:after {
-      content: ""; }
   div.navigation h1 {
     font-family: "calluna", serif;
-    color: #fafafa;
     font-size: 1.4em;
     line-height: 60px;
     margin: 0;
     padding-left: 2em;
     text-transform: uppercase; }
+    div.navigation h1 a {
+      color: #fafafa;
+      text-decoration: none; }
+  div.navigation ul {
+    margin: 0;
+    padding-right: 2em; }
   div.navigation li {
     display: inline; }
     div.navigation li.active a {
       color: #99d8de; }
-  div.navigation ul {
-    margin: 0;
-    padding-right: 2em; }
+    div.navigation li a {
+      color: #fafafa;
+      display: inline-block;
+      font-size: 1.3em;
+      line-height: 60px;
+      text-decoration: none; }
+      div.navigation li a:after {
+        content: "-";
+        margin-left: 5px; }
+      div.navigation li a:hover {
+        color: #99d8de; }
+        div.navigation li a:hover:after {
+          color: #fafafa; }
+      div.navigation li a.chapter9:after {
+        content: ""; }
 
 div.content {
   background: white; }
@@ -284,9 +286,12 @@ div.content {
   div.content.width-70 {
     max-width: 70%; }
 
+div.content-centerer {
+  display: table-cell;
+  vertical-align: middle; }
+
 div.content-padder {
-  padding: 3em;
-  padding-top: 5em; }
+  padding: 60px 3em 0 3em; }
 
 div.slide.video {
   background: #111111; }

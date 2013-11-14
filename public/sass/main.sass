@@ -51,37 +51,41 @@ div.navigation
   #menu
     float: right
 
-  a
-    color: $white
-    display: inline-block
-    font-size: 1.3em
-    line-height: $nav-height
-    text-decoration: none
-    &:after
-      content: '-'
-      margin-left: 5px
-    &:hover
-      color: $blue
-      &:after
-        color: $white
-    &.chapter9
-      &:after
-        content: ''
   h1
     +calluna
-    color: $white
     font-size: 1.4em
     line-height: $nav-height
     margin: 0
     padding-left: $nav-padding
     text-transform: uppercase
+    a
+      color: $white
+      text-decoration: none
+
+  ul
+    margin: 0
+    padding-right: $nav-padding
   li
     display: inline
     &.active a
       color: $blue
-  ul
-    margin: 0
-    padding-right: $nav-padding
+
+    a
+      color: $white
+      display: inline-block
+      font-size: 1.3em
+      line-height: $nav-height
+      text-decoration: none
+      &:after
+        content: '-'
+        margin-left: 5px
+      &:hover
+        color: $blue
+        &:after
+          color: $white
+      &.chapter9
+        &:after
+          content: ''
 
 // content /////////////////////////////////////////////////////////////////////
 div.content
@@ -99,9 +103,12 @@ div.content
     &.width-#{$width}
       max-width: 1% * $width
 
+div.content-centerer
+  display: table-cell
+  vertical-align: middle
+
 div.content-padder
-  padding: 3em
-  padding-top: 5em
+  padding: $nav-height 3em 0 3em
 
 div.slide.video
   background: $black
