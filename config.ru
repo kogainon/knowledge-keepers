@@ -7,7 +7,7 @@ Slim::Engine.default_options[:pretty] = true
 
 use Rack::Static,
   root: 'public',
-  urls: ['/fonts', '/images', '/javascripts', '/stylesheets']
+  urls: ['/fonts', '/images', '/javascripts', '/stylesheets', '/videos']
 
 Rack::Mime::MIME_TYPES.merge!({
   '.flv' => 'video/flash',

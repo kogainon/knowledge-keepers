@@ -21,6 +21,9 @@
     "jquery-waypoints": "~2.0.3",
     "keymaster": "*",
     "annyang": "*",
-    "skrollr": "~0.6.12"
+    "skrollr": "~0.6.12",
+    "jquery-ui": "~1.10.3",
+    "fullPage.js": "https://github.com/alvarotrigo/fullPage.js.git",
+    "flowplayer": "~5.4.4"
   }
 }

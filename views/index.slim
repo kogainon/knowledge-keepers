@@ -33,8 +33,16 @@ html lang="en"
 
     script src='/javascripts/all.js'
     script src='http://releases.flowplayer.org/5.4.3/flowplayer.min.js'
-    javascript:
+    coffee:
       flowplayer.conf.adaptiveRatio = true
+      $ ->
+        selector = '#navigation, .controlArrow'
+        hide = -> $(selector).fadeOut()
+        show = -> $(selector).fadeIn()
+        flowplayer().bind 'load', hide
+        flowplayer().bind 'resume', hide
+        flowplayer().bind 'pause', show
+        flowplayer().bind 'stop', show
 
     script src='http://localhost:9011/livereload.js'
 
