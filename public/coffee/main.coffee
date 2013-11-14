@@ -13,3 +13,9 @@ $.fn.fullpage
   ]
   menu: '#menu'
   scrollOverflow: true
+
+$ ->
+  $('#intro-arrow').fadeIn(4000)
+  window_height = $(window).height()
+  for div in $('div.content')
+    $(div).css('height', "#{window_height}px")

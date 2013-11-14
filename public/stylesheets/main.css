@@ -63,8 +63,7 @@ div.navigation {
     padding-right: 2em; }
 
 div.content {
-  background: white;
-  padding-top: 58px; }
+  background: white; }
   div.content.center {
     margin: 0 auto; }
   div.content.width-700 {
@@ -285,7 +284,8 @@ div.content {
     max-width: 70%; }
 
 div.content-padder {
-  padding: 3em; }
+  padding: 3em;
+  padding-top: 5em; }
 
 div.slide.video {
   background: #202020; }
@@ -308,6 +308,10 @@ p.title-credits {
   font-size: 0.85em;
   margin-top: -0.5em;
   margin-bottom: 2em; }
+
+#section0 {
+  background: url("/images/chapter0.jpg") no-repeat center center fixed;
+  background-size: cover; }
 
 #section2 {
   background: url("/images/chapter2/1.jpg") no-repeat center center fixed;

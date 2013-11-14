@@ -5,4 +5,17 @@
     scrollOverflow: true
   });
 
+  $(function() {
+    var div, window_height, _i, _len, _ref, _results;
+    $('#intro-arrow').fadeIn(4000);
+    window_height = $(window).height();
+    _ref = $('div.content');
+    _results = [];
+    for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+      div = _ref[_i];
+      _results.push($(div).css('height', "" + window_height + "px"));
+    }
+    return _results;
+  });
+
 }).call(this);
