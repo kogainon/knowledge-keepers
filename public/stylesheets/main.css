@@ -24,7 +24,7 @@ span.dropcap {
   text-transform: uppercase; }
 
 div.navigation {
-  background: #202020;
+  background: #111111;
   position: fixed;
   right: 0px;
   top: 0px;
@@ -35,8 +35,8 @@ div.navigation {
   div.navigation a {
     color: #fafafa;
     display: inline-block;
-    font-size: 1.2em;
-    line-height: 1.5em;
+    font-size: 1.3em;
+    line-height: 60px;
     text-decoration: none; }
     div.navigation a:after {
       content: "-";
@@ -50,8 +50,9 @@ div.navigation {
   div.navigation h1 {
     font-family: "calluna", serif;
     color: #fafafa;
-    font-size: 1.1em;
-    line-height: 1.6em;
+    font-size: 1.4em;
+    line-height: 60px;
+    margin: 0;
     padding-left: 2em;
     text-transform: uppercase; }
   div.navigation li {
@@ -59,7 +60,7 @@ div.navigation {
     div.navigation li.active a {
       color: #99d8de; }
   div.navigation ul {
-    margin: 0.6em 0 0 0;
+    margin: 0;
     padding-right: 2em; }
 
 div.content {
@@ -288,10 +289,10 @@ div.content-padder {
   padding-top: 5em; }
 
 div.slide.video {
-  background: #202020; }
+  background: #111111; }
 
 div.title {
-  border-bottom: 1px solid #202020;
+  border-bottom: 1px solid #111111;
   margin-bottom: 1em;
   padding-bottom: 5px; }
   div.title h1 {
@@ -400,6 +401,15 @@ p.title-credits {
 #section7 #slide4,
 #section8 #slide4 {
   background: black; }
+
+#intro-arrow {
+  color: rgba(255, 255, 255, 0.8);
+  display: none;
+  font-size: 8em;
+  line-height: 1em;
+  position: absolute;
+  bottom: 0;
+  right: 50%; }
 
 .controlArrow.prev {
   border-right-color: rgba(210, 210, 210, 0.7) !important;
