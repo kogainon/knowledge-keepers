@@ -42,6 +42,7 @@ $nav-height: 60px
 
 div.navigation
   background: $black
+  background: linear-gradient(to bottom, #000 0%, #333 100%)
   position: fixed
   right: 0px
   top: 0px
@@ -133,24 +134,50 @@ p.title-credits
   margin-bottom: 2em
 
 // backgrounds//////////////////////////////////////////////////////////////////
-@mixin fixed-background($url)
-  background: url($url) no-repeat center center fixed
+@mixin fixed-background($url, $args...)
+  background: url($url) no-repeat $args
   background-size: cover
 
 #section0
   +fixed-background('/images/chapter0.jpg')
 #section2
-  +fixed-background('/images/chapter2/1.jpg')
+  +fixed-background('/images/chapter2/1.jpg', top right)
 
-// http://css-tricks.com/perfect-full-page-background-image/
-@for $chapter from 3 through 8
-  @for $section from 1 through 3
-    #section#{$chapter} #slide#{$section}
-      +fixed-background('/images/chapter#{$chapter}/#{$section}.jpg')
+#section3 #slide1
+  +fixed-background('/images/chapter3/1.jpg', top right fixed)
+#section3 #slide2
+  +fixed-background('/images/chapter3/2.jpg', top left fixed)
+#section3 #slide3
+  +fixed-background('/images/chapter3/3.jpg', top right fixed)
 
-#section5 #slide2,
-#section6 #slide3
-  background: none
+#section4 #slide1
+  +fixed-background('/images/chapter4/1.jpg', top center fixed)
+#section4 #slide2
+  +fixed-background('/images/chapter4/2.jpg', top right fixed)
+#section4 #slide3
+  +fixed-background('/images/chapter4/3.jpg', top right fixed)
+
+#section5 #slide1
+  +fixed-background('/images/chapter5/1.jpg', top right fixed)
+#section6 #slide1
+  +fixed-background('/images/chapter6/1.jpg', top right)
+
+#section6 #slide2
+  +fixed-background('/images/chapter6/2.jpg', top right)
+
+#section7 #slide1
+  +fixed-background('/images/chapter7/1.jpg', top center fixed)
+#section7 #slide2
+  +fixed-background('/images/chapter7/2.jpg', center center fixed)
+#section7 #slide3
+  +fixed-background('/images/chapter7/3.jpg', center center fixed)
+
+#section8 #slide1
+  +fixed-background('/images/chapter8/1.jpg', top center fixed)
+#section8 #slide2
+  +fixed-background('/images/chapter8/2.jpg', center center fixed)
+#section8 #slide3
+  +fixed-background('/images/chapter8/3.jpg', center center fixed)
 
 // videos
 #section3 #slide4,

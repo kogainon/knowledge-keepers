@@ -23848,7 +23848,7 @@ a.railVisible?"block":"none","border-radius":a.size,background:a.railColor,opaci
 a.railDraggable&&c.draggable({axis:"y",containment:"parent",start:function(){v=!0},stop:function(){v=!1;m()},drag:function(){g(0,f(this).position().top,!1)}});h.hover(function(){s()},function(){m()});c.hover(function(){u=!0},function(){u=!1});b.hover(function(){n=!0;s();m()},function(){n=!1;m()});b.bind("touchstart",function(a){a.originalEvent.touches.length&&(y=a.originalEvent.touches[0].pageY)});b.bind("touchmove",function(b){b.originalEvent.preventDefault();b.originalEvent.touches.length&&g((y-
 b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.css({top:b.outerHeight()-c.outerHeight()}),g(0,!0)):"top"!==a.start&&(g(f(a.start).position().top,null,!0),a.alwaysVisible||c.hide());A();t()}});return this}});jQuery.fn.extend({slimscroll:jQuery.fn.slimScroll})})(jQuery);
 /**
- * fullPage 1.2.9
+ * fullPage 1.3.1
  * https://github.com/alvarotrigo/fullPage.js
  * MIT licensed
  *
@@ -23878,6 +23878,7 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 			'css3': false,
 			'paddingTop': null,
 			'paddingBottom': null,
+			'fixedElements': null,
 
 			//events
 			'afterLoad': null,
@@ -23931,11 +23932,12 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 				//scrolling the page to the section with no animation
 				$('html, body').scrollTop(element.position().top);
 			}
+			
 		};
 		
 			
 		//flag to avoid very fast sliding for landscape sliders
-		var slideLapse = true;
+		var slideMoving = false;
 
 		var isTablet = navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|Windows Phone)/);
 
@@ -23943,7 +23945,6 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 		var isMoving = false;
 		var lastScrolledDestiny;
 		
-		$.fn.fullpage.setAutoScrolling(options.autoScrolling);
 		addScrollEvent();
 
 		$('body').wrapInner('<div id="superContainer" />');
@@ -24033,8 +24034,14 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 
 			
 		}).promise().done(function(){			
+			$.fn.fullpage.setAutoScrolling(options.autoScrolling);
 
 			$.isFunction( options.afterRender ) && options.afterRender.call( this);
+			
+			//fixed elements need to be moved out of the plugin container due to problems with CSS3.
+			if(options.fixedElements && options.css3){
+				$(options.fixedElements).appendTo('body');
+			}
 			
 			//vertical centered of the navigation + first bullet active
 			if(options.navigation){
@@ -24128,6 +24135,7 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 		
 	
 		var touchStartY = 0;
+		var touchStartX = 0;
 		var touchEndY = 0;
 		var touchEndX = 0;
 	
@@ -24142,47 +24150,63 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 				//preventing the easing on iOS devices
 				event.preventDefault();
 				var e = event.originalEvent;
+				var touchMoved = false;
 
 				if (!isMoving) { //if theres any #
-					var scrollable = $('.section.active').find('.scrollable');
 				
 					touchEndY = e.touches[0].pageY;
 					touchEndX = e.touches[0].pageX;
-					if(touchStartY > touchEndY){
-						if(scrollable.length > 0 ){
-							//is the scrollbar at the end of the scroll?
-							if(isScrolled('bottom', scrollable)){
-								$.fn.fullpage.moveSlideDown();
-							}else{
-								return true;
-							}
-						}else{
-							// moved down
-							$.fn.fullpage.moveSlideDown();
-						}
-					} else {
 					
-						if(scrollable.length > 0){
-							//is the scrollbar at the start of the scroll?
-							if(isScrolled('top', scrollable)){
-								$.fn.fullpage.moveSlideUp();
-							}
-							else{
-								return true;
-							}
-						}else{
-							// moved up
-							$.fn.fullpage.moveSlideUp();
+					
+					//if movement in the X axys is bigger than in the Y and the currect section has slides...
+					if($('.section.active').find('.slides').length && Math.abs(touchStartX - touchEndX) > Math.abs(touchStartY - touchEndY) ){
+						if(touchStartX > touchEndX){
+							$('.section.active').find('.controlArrow.next').trigger('click');
+						}
+						else if(touchStartX < touchEndX){
+							$('.section.active').find('.controlArrow.prev').trigger('click');
 						}
 					}
+					//vertical scrolling
+					else{
+						var scrollable = $('.section.active').find('.scrollable');
+						if(touchStartY > touchEndY){
+							if(scrollable.length > 0 ){
+								//is the scrollbar at the end of the scroll?
+								if(isScrolled('bottom', scrollable)){
+									$.fn.fullpage.moveSlideDown();
+								}else{
+									return true;
+								}
+							}else{
+								// moved down
+								$.fn.fullpage.moveSlideDown();
+							}
+						} else {
+						
+							if(scrollable.length > 0){
+								//is the scrollbar at the start of the scroll?
+								if(isScrolled('top', scrollable)){
+									$.fn.fullpage.moveSlideUp();
+								}
+								else{
+									return true;
+								}
+							}else{
+								// moved up
+								$.fn.fullpage.moveSlideUp();
+							}
+						}
+					}					
 				}
 			}
 		});
-		
+
 		$(document).on('touchstart', function(event){
 			if(options.autoScrolling && isTablet){
 				var e = event.originalEvent;
 				touchStartY = e.touches[0].pageY;
+				touchStartX = e.touches[0].pageX;
 			}
 		});
 		
@@ -24379,28 +24403,8 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 			var section = value[0];
 			var slide = value[1];
 						
-			if(section){  //if theres any #
-				var element = $('[data-anchor="'+section+'"]');
-				
-				//updating the array positions...
-				
-				scrollPage(element, function(){
-					if(typeof slide != 'undefined'){
-						var slides = element.find('.slides');
-						var destiny =  slides.find('[data-anchor="'+slide+'"]');
-						if(!destiny.length){
-							destiny = slides.find('.slide').eq(slide);
-						}
-						
-						slides.find('.slide').first().removeClass('active');
-						
-						landscapeScroll(slides, destiny);
-						
-						destiny.addClass('active');
-						
-					}
-				});
-				
+			if(section){  //if theres any #				
+				scrollPageAndSlide(section, slide);
 			}
 		}
 
@@ -24410,15 +24414,13 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 			if(!isScrolling){
 				var value =  window.location.hash.replace('#', '').split('/');
 				var section = value[0];
-
+				var slide = value[1];
+				
 				/*in order to call scrollpage() only once for each destination at a time
 				It is called twice for each scroll otherwise, as in case of using anchorlinks `hashChange` 
 				event is fired on every scroll too.*/
 				if (section !== lastScrolledDestiny) {
-	
-					var element = $('[data-anchor="'+section+'"]');
-
-					scrollPage(element);
+					scrollPageAndSlide(section, slide);
 				}
 			}
 		});
@@ -24470,10 +24472,10 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 		 */
 		$('.section').on('click', '.controlArrow', function() {
 			//not that fast my friend! :)
-			if (!slideLapse) {
+			if (slideMoving) {
 				return;
 			}
-			slideLapse = false;
+			slideMoving = true;
 
 			var slides = $(this).closest('.section').find('.slides');
 			var currentSlide = slides.find('.slide.active');
@@ -24575,7 +24577,7 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 				setTimeout(function(){
 					$.isFunction( options.afterSlideLoad ) && options.afterSlideLoad.call( this, anchorLink, (sectionIndex + 1), slideAnchor, slideIndex );
 
-					slideLapse = true;
+					slideMoving = false;
 				}, options.scrollingSpeed);
 			}else{
 				slidesContainer.animate({
@@ -24585,7 +24587,7 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 					$.isFunction( options.afterSlideLoad ) && options.afterSlideLoad.call( this, anchorLink, (sectionIndex + 1), slideAnchor, slideIndex);
 					
 					//letting them slide again
-					slideLapse = true; 
+					slideMoving = false; 
 				});
 			}
 		}
@@ -24787,12 +24789,39 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 				'transform': translate3d
 			});
 		}
+		
+		
+		/**
+		* Scrolls to the given section and slide 
+		*/
+		function scrollPageAndSlide(section, slide){
+			var element = $('[data-anchor="'+section+'"]');
+						
+			scrollPage(element, function(){
+				if(typeof slide != 'undefined'){
+					var slides = element.find('.slides');
+					var destiny =  slides.find('[data-anchor="'+slide+'"]');
+					if(!destiny.length){
+						destiny = slides.find('.slide').eq(slide);
+					}
+					
+					slides.find('.slide').first().removeClass('active');
+					
+					landscapeScroll(slides, destiny);
+					
+					destiny.addClass('active');
+				}
+			});
+		}
 	};
 })(jQuery);
 
 (function() {
+  var resize_content;
+
   $.fn.fullpage({
     anchors: ['chapter0', 'chapter1', 'chapter2', 'chapter3', 'chapter4', 'chapter5', 'chapter6', 'chapter7', 'chapter8', 'chapter9'],
+    loopHorizontal: false,
     menu: '#menu',
     paddingTop: '60',
     resize: false,
@@ -24800,17 +24829,21 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
     verticalCentered: false
   });
 
-  $(function() {
-    var div, window_height, _i, _len, _ref, _results;
-    $('#intro-arrow').fadeIn(4000);
-    window_height = $(window).height();
-    _ref = $('div.content, div.content-centerer');
+  resize_content = function() {
+    var div, _i, _len, _ref, _results;
+    _ref = $('div.content, div.content-centerer, div.flowplayer');
     _results = [];
     for (_i = 0, _len = _ref.length; _i < _len; _i++) {
       div = _ref[_i];
-      _results.push($(div).css('height', "" + window_height + "px"));
+      _results.push($(div).css('height', "" + ($(window).height()) + "px"));
     }
     return _results;
+  };
+
+  $(function() {
+    $('#intro-arrow').fadeIn(4000);
+    resize_content();
+    return $(window).on('resize', resize_content);
   });
 
 }).call(this);

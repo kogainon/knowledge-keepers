@@ -11,6 +11,7 @@ html lang="en"
     link href='/stylesheets/jquery.fullPage.css' rel='stylesheet' type='text/css'
     link href='/stylesheets/main.css' rel='stylesheet' type='text/css'
     link href='http://releases.flowplayer.org/5.4.3/skin/minimalist.css' rel='stylesheet' type='text/css'
+    link href='http://flowplayer.org/media/css/demos/playlist/dots.css' rel='stylesheet' type='text/css'
 
     script type="text/javascript" src="//use.typekit.net/qdp3aho.js"
     javascript:
@@ -44,7 +45,7 @@ html lang="en"
         flowplayer().bind 'pause', show
         flowplayer().bind 'stop', show
 
-    script src='http://localhost:9011/livereload.js'
+    script src="http://#{@request_url}:9011/livereload.js"
 
     javascript:
       var _gaq = _gaq || [];

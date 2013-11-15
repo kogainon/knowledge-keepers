@@ -1,4 +1,10 @@
-div.slide#slide1 data-anchor="slide1"
+ruby:
+  def slide_tag(num)
+    { :class => "slide", :id => "slide#{num}", :'data-anchor' => "slide#{num}"}
+  end
+
+//div.slide#slide1 data-anchor="slide1"
+div *slide_tag(1)
   div.content.width-40
     div.content-centerer
       div.content-padder
@@ -74,11 +80,7 @@ div.slide#slide3 data-anchor="slide3"
             "People still buy these pots.”
 
 div.slide#slide4 data-anchor="slide4"
-  div.flowplayer.is-splash.minimalist
-    video preload="none"
-      source type="video/webm" src="/videos/chapter3_1.webm"
-      source type="video/mp4" src="/videos/chapter3_1.mp4"
-      //source type="video/ogv" src="/videos/chapter3_1.ogv"
-    div.fp-playlist
-      a href="/videos/chapter3_1.mp4"
-      a href="/videos/chapter3_2.mp4"
+  div.flowplayer.is-splash.minimalist#dots
+    video preload="none" poster="/videos/chapter3.jpg"
+      source type="video/webm" src="#{@cloudfront_url}/videos/chapter3.webm"
+      source type="video/mp4" src="#{@cloudfront_url}/videos/chapter3.mp4"
