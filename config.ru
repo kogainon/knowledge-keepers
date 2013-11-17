@@ -12,5 +12,9 @@ use Rack::Static,
   ],
   urls: ['/fonts', '/images', '/javascripts', '/stylesheets']
 
+Rack::Mime::MIME_TYPES.merge!({
+  '.jpg' => 'image/jpeg'
+})
+
 use Rack::Deflater
 run Sinatra::Application
