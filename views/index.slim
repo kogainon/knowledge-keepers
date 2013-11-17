@@ -45,7 +45,8 @@ html lang="en"
         flowplayer().bind 'pause', show
         flowplayer().bind 'stop', show
 
-    script src="http://#{@request_url}:9011/livereload.js"
+    - if @environment.to_s == 'livereload'
+      script src="http://#{@request_url}:9011/livereload.js"
 
     javascript:
       var _gaq = _gaq || [];
