@@ -8827,8 +8827,7 @@ if ( typeof window === "object" && typeof window.document === "object" ) {
 }
 
 })( window );
-
-/*! jQuery UI - v1.10.3 - 2013-05-03
+;/*! jQuery UI - v1.10.3 - 2013-05-03
 * http://jqueryui.com
 * Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.mouse.js, jquery.ui.draggable.js, jquery.ui.droppable.js, jquery.ui.resizable.js, jquery.ui.selectable.js, jquery.ui.sortable.js, jquery.ui.effect.js, jquery.ui.accordion.js, jquery.ui.autocomplete.js, jquery.ui.button.js, jquery.ui.datepicker.js, jquery.ui.dialog.js, jquery.ui.effect-blind.js, jquery.ui.effect-bounce.js, jquery.ui.effect-clip.js, jquery.ui.effect-drop.js, jquery.ui.effect-explode.js, jquery.ui.effect-fade.js, jquery.ui.effect-fold.js, jquery.ui.effect-highlight.js, jquery.ui.effect-pulsate.js, jquery.ui.effect-scale.js, jquery.ui.effect-shake.js, jquery.ui.effect-slide.js, jquery.ui.effect-transfer.js, jquery.ui.menu.js, jquery.ui.position.js, jquery.ui.progressbar.js, jquery.ui.slider.js, jquery.ui.spinner.js, jquery.ui.tabs.js, jquery.ui.tooltip.js
 * Copyright 2013 jQuery Foundation and other contributors; Licensed MIT */
@@ -23831,8 +23830,7 @@ $.widget( "ui.tooltip", {
 });
 
 }( jQuery ) );
-
-/*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
+;/*! Copyright (c) 2011 Piotr Rochala (http://rocha.la)
  * Dual licensed under the MIT (http://www.opensource.org/licenses/mit-license.php)
  * and GPL (http://www.opensource.org/licenses/gpl-license.php) licenses.
  *
@@ -23846,8 +23844,7 @@ x!=j&&b.trigger("slimscroll",0==~~j?"top":"bottom"));x=j;q>=b.outerHeight()?p=!0
 parseInt(a.scrollTo);else if("scrollBy"in l)k+=parseInt(a.scrollBy);else if("destroy"in l){c.remove();h.remove();b.unwrap();return}g(k,!1,!0)}}else{a.height="auto"==a.height?b.parent().innerHeight():a.height;k=f("<div></div>").addClass(a.wrapperClass).css({position:"relative",overflow:"hidden",width:a.width,height:a.height});b.css({overflow:"hidden",width:a.width,height:a.height});var h=f("<div></div>").addClass(a.railClass).css({width:a.size,height:"100%",position:"absolute",top:0,display:a.alwaysVisible&&
 a.railVisible?"block":"none","border-radius":a.size,background:a.railColor,opacity:a.railOpacity,zIndex:90}),c=f("<div></div>").addClass(a.barClass).css({background:a.color,width:a.size,position:"absolute",top:0,opacity:a.opacity,display:a.alwaysVisible?"block":"none","border-radius":a.size,BorderRadius:a.size,MozBorderRadius:a.size,WebkitBorderRadius:a.size,zIndex:99}),z="right"==a.position?{right:a.distance}:{left:a.distance};h.css(z);c.css(z);b.wrap(k);b.parent().append(c);b.parent().append(h);
 a.railDraggable&&c.draggable({axis:"y",containment:"parent",start:function(){v=!0},stop:function(){v=!1;m()},drag:function(){g(0,f(this).position().top,!1)}});h.hover(function(){s()},function(){m()});c.hover(function(){u=!0},function(){u=!1});b.hover(function(){n=!0;s();m()},function(){n=!1;m()});b.bind("touchstart",function(a){a.originalEvent.touches.length&&(y=a.originalEvent.touches[0].pageY)});b.bind("touchmove",function(b){b.originalEvent.preventDefault();b.originalEvent.touches.length&&g((y-
-b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.css({top:b.outerHeight()-c.outerHeight()}),g(0,!0)):"top"!==a.start&&(g(f(a.start).position().top,null,!0),a.alwaysVisible||c.hide());A();t()}});return this}});jQuery.fn.extend({slimscroll:jQuery.fn.slimScroll})})(jQuery);
-/**
+b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.css({top:b.outerHeight()-c.outerHeight()}),g(0,!0)):"top"!==a.start&&(g(f(a.start).position().top,null,!0),a.alwaysVisible||c.hide());A();t()}});return this}});jQuery.fn.extend({slimscroll:jQuery.fn.slimScroll})})(jQuery);;/**
  * fullPage 1.3.1
  * https://github.com/alvarotrigo/fullPage.js
  * MIT licensed
@@ -24815,8 +24812,7 @@ b.originalEvent.touches[0].pageY)/a.touchScrollStep,!0)});"bottom"===a.start?(c.
 		}
 	};
 })(jQuery);
-
-(function() {
+;(function() {
   var resize_content;
 
   $.fn.fullpage({

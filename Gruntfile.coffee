@@ -9,13 +9,17 @@ module.exports = (grunt) ->
           'public/javascripts/client.js': 'public/coffee/main.coffee'
 
     concat:
-      'public/javascripts/all.js': [
-        'bower_components/jquery/jquery.js'
-        'bower_components/jquery-ui/ui/jquery-ui.js'
-        'bower_components/fullPage.js/vendors/jquery.slimscroll.min.js'
-        'bower_components/fullPage.js/jquery.fullPage.js'
-        'public/javascripts/client.js'
-      ]
+      options:
+        separator: ';'
+      dist:
+        dest: 'public/javascripts/all.js'
+        src: [
+          'bower_components/jquery/jquery.js'
+          'bower_components/jquery-ui/ui/jquery-ui.js'
+          'bower_components/fullPage.js/vendors/jquery.slimscroll.min.js'
+          'bower_components/fullPage.js/jquery.fullPage.js'
+          'public/javascripts/client.js'
+        ]
 
     sass:
       dist:
