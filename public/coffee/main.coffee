@@ -8,10 +8,15 @@ $.fn.fullpage
   verticalCentered: false
 
 resize_content = ->
-  for div in $('div.content, div.content-centerer, div.flowplayer')
+  for div in $('div.content')
+    $(div).css('min-height', "#{$(window).height()}px")
+  for div in $('div.content-centerer, div.flowplayer')
     $(div).css('height', "#{$(window).height()}px")
 
 $ ->
   $('#intro-arrow').fadeIn(4000)
   resize_content()
   $(window).on 'resize', resize_content
+
+$ ->
+  $('.slide-down').on 'click', $.fn.fullpage.moveSlideDown

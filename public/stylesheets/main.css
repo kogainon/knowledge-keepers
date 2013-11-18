@@ -25,7 +25,6 @@ span.dropcap {
 
 div.navigation {
   background: #111111;
-  background: linear-gradient(to bottom, black 0%, #333333 100%);
   position: fixed;
   right: 0px;
   top: 0px;
@@ -49,7 +48,8 @@ div.navigation {
   div.navigation li {
     display: inline; }
     div.navigation li.active a {
-      color: #99d8de; }
+      color: #99d8de;
+      font-weight: bold; }
     div.navigation li a {
       color: #fafafa;
       display: inline-block;
@@ -296,7 +296,7 @@ div.content-centerer {
   vertical-align: middle; }
 
 div.content-padder {
-  padding: 60px 3em 0 3em; }
+  padding: 5.5em 3em 3em 2em; }
 
 div.slide.video {
   background: #111111; }
@@ -319,6 +319,20 @@ p.title-credits {
   font-size: 0.85em;
   margin-top: -0.5em;
   margin-bottom: 2em; }
+
+p.inline-nav {
+  font-family: "proxima-nova", sans-serif;
+  color: #2a7a81;
+  padding-right: 1em;
+  text-align: right;
+  text-transform: uppercase; }
+  p.inline-nav span.next {
+    font-size: 1.1em; }
+    p.inline-nav span.next:after {
+      content: "\261B";
+      content: "\25B8";
+      font-size: 1.2em;
+      padding-left: 7px; }
 
 #section0 {
   background: url("/images/chapter0.jpg") no-repeat;
@@ -364,6 +378,10 @@ p.title-credits {
   background: url("/images/chapter6/2.jpg") no-repeat top right;
   background-size: cover; }
 
+#section6 #slide3 {
+  background: url("/images/chapter6/3.jpg") no-repeat top right;
+  background-size: cover; }
+
 #section7 #slide1 {
   background: url("/images/chapter7/1.jpg") no-repeat top center fixed;
   background-size: cover; }
@@ -397,9 +415,9 @@ p.title-credits {
   background: black; }
 
 #intro-arrow {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.7);
   display: none;
-  font-size: 8em;
+  font-size: 7em;
   line-height: 1em;
   position: absolute;
   bottom: 0;

@@ -42,7 +42,7 @@ $nav-height: 60px
 
 div.navigation
   background: $black
-  background: linear-gradient(to bottom, #000 0%, #333 100%)
+  //background: linear-gradient(to bottom, #000 0%, #333 100%)
   position: fixed
   right: 0px
   top: 0px
@@ -70,6 +70,7 @@ div.navigation
     display: inline
     &.active a
       color: $blue
+      font-weight: bold
 
     a
       color: $white
@@ -108,7 +109,7 @@ div.content-centerer
   vertical-align: middle
 
 div.content-padder
-  padding: $nav-height 3em 0 3em
+  padding: 5.5em 3em 3em 2em
 
 div.slide.video
   background: $black
@@ -132,6 +133,20 @@ p.title-credits
   font-size: 0.85em
   margin-top: -0.5em
   margin-bottom: 2em
+
+p.inline-nav
+  +gotham
+  color: darken($blue, 40%)
+  padding-right: 1em
+  text-align: right
+  text-transform: uppercase
+  span.next
+    font-size: 1.1em
+    &:after
+      content: '\261B'
+      content: '\25B8'
+      font-size: 1.2em
+      padding-left: 7px
 
 // backgrounds//////////////////////////////////////////////////////////////////
 @mixin fixed-background($url, $args...)
@@ -159,11 +174,13 @@ p.title-credits
 
 #section5 #slide1
   +fixed-background('/images/chapter5/1.jpg', top right fixed)
+
 #section6 #slide1
   +fixed-background('/images/chapter6/1.jpg', top right)
-
 #section6 #slide2
   +fixed-background('/images/chapter6/2.jpg', top right)
+#section6 #slide3
+  +fixed-background('/images/chapter6/3.jpg', top right)
 
 #section7 #slide1
   +fixed-background('/images/chapter7/1.jpg', top center fixed)
@@ -190,9 +207,9 @@ p.title-credits
 
 // intro page arrow down
 #intro-arrow
-  color: rgba(255, 255, 255, 0.8)
+  color: rgba(255, 255, 255, 0.7)
   display: none
-  font-size: 8em
+  font-size: 7em
   line-height: 1em
   position: absolute
   bottom: 0

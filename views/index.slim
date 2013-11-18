@@ -23,7 +23,11 @@ html lang="en"
         - (0..9).each do |x|
           - active_class = 'active' if x == 0
           li class=active_class data-menuanchor="chapter#{x}"
-            a class="chapter#{x}" href="#chapter#{x}" = x
+            a class="chapter#{x}" href="#chapter#{x}"
+              - if x == 0
+                | Intro
+              - else
+                = x
       h1
         a href="#chapter0" Knowledge Keepers
 
@@ -44,6 +48,9 @@ html lang="en"
         flowplayer().bind 'resume', hide
         flowplayer().bind 'pause', show
         flowplayer().bind 'stop', show
+        flowplayer().bind 'finish', ->
+          show()
+          $.fn.fullpage.moveSlideDown()
 
     - if @environment.to_s == 'livereload'
       script src="http://#{@request_url}:9011/livereload.js"
